@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Wilayah;
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 class WilayahController extends Controller
 {
