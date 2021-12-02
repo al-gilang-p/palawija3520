@@ -26,6 +26,13 @@ Route::get('/wilayah', function () {
 
 })->name('admin.template_wilayah');
 
+Route::get('/wilayah/view/{id}', function ($id) {
+
+    $wilayah = Wilayah::findOrFail($id)->toArray();
+    return view('admin.pages.template_wilayah_view', ['wilayah' => $wilayah]);
+
+})->name('admin.template_wilayah_view');
+
 Route::post('/wilayah', [WilayahController::class, 'store'])->name('admin.store_wilayah');
 Route::delete('/wilayah/{id}', [WilayahController::class, 'destroy'])->name('admin.destroy_wilayah');
 

@@ -4,6 +4,8 @@
 
 @section('template_link', 'active')
 
+@section('template_arrow', 'active')
+
 @section('template_collapse', 'show')
 
 @section('template_wilayah_link', 'active')
@@ -137,7 +139,7 @@
                     'searchable': false,
                     render: function (data, type, row) {
                         return `
-                            <a href="" title="lihat" class='btn btn-primary-outline btn-sm text-primary p-0 view'><i class="far fa-eye"></i></a>
+                            <a href="wilayah/view/${row[9]}" title="lihat" class='btn btn-primary-outline btn-sm text-primary p-0 view'><i class="far fa-eye"></i></a>
                             <button title="perbarui" class='btn btn-warning-outline btn-sm text-warning p-0 edit'><i class="far fa-edit"></i></button>
                             <form method="post" action="wilayah/${row[9]}">
                                 @csrf
