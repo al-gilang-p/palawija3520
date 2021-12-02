@@ -9,22 +9,6 @@
 @section('template_wilayah_link', 'active')
 
 @section('content')
-{{-- @if ($status == 'ok')
-<div class="alert alert-success alert-dismissible fade show" role="alert">
-    <strong>Sukses!</strong> {{ content }}
-<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-</button>
-</div>
-@elseif($status == 'error')
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-    <strong>Error!</strong> {{ content }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif --}}
-
 @if (session('success'))
 <div class="alert alert-success alert-dismissible fade show" role="alert">
     <strong>Sukses!</strong> {{ session('success') }}
@@ -98,20 +82,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @foreach ($wilayah as $data)
+                    @foreach ($wilayah as $data)
                     <tr>
                         <td></td>
-                        <td>{{ data.nm_kec }}</td>
-                    <td>{{ data.nm_desa }}</td>
-                    <td>{{ data.nbs }}</td>
-                    <td>{{ data.nks }}</td>
-                    <td>{{ data.id_segmen }}</td>
-                    <td>{{ data.nm_lokasi }}</td>
-                    <td>{{ data.nm_pml }}</td>
-                    <td>{{ data.nm_pcl }}</td>
-                    <td>{{ data.id }}</td>
+                        <td>{{ $data[ 'nm_kec' ] }}</td>
+                        <td>{{ $data['nm_desa'] }}</td>
+                        <td>{{ $data['nbs'] }}</td>
+                        <td>{{ $data['nks'] }}</td>
+                        <td>{{ $data['id_segmen'] }}</td>
+                        <td>{{ $data['nm_lokasi'] }}</td>
+                        <td>{{ $data['nm_pml'] }}</td>
+                        <td>{{ $data['nm_pcl'] }}</td>
+                        <td>{{ $data['id'] }}</td>
                     </tr>
-                    @endforeach --}}
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -156,7 +140,8 @@
                             <a href="" title="lihat" class='btn btn-primary-outline btn-sm text-primary p-0 view'><i class="far fa-eye"></i></a>
                             <button title="perbarui" class='btn btn-warning-outline btn-sm text-warning p-0 edit'><i class="far fa-edit"></i></button>
                             <form method="post" action="wilayah/${row[9]}">
-                                <input type="hidden" name="_METHOD" value="DELETE" />
+                                @csrf
+                                @method('delete')
                                 <button type="button" title="hapus" class='btn btn-danger-outline btn-sm text-danger p-0 delete'><i class="far fa-trash-alt"></i></button>
                             </form>
                         `;

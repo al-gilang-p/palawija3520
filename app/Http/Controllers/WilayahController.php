@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Imports\WilayahsImport;
+use App\Models\Wilayah;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Maatwebsite\Excel\Facades\Excel;
@@ -22,6 +23,14 @@ class WilayahController extends Controller
         } catch (ValidationException $e) {
             $failures = $e->failures();
             return redirect()->route('admin.template_wilayah')->with('error', 'Gagal menambahkan wilayah!');
+        }
+    }
+
+    public function destroy(Request $request, Response $response, $id)
+    {
+        $wilayah = Wilayah::findOrFail($id);
+        if ($wilayah->delete()) {
+            return redirect()->route('admin.template_wilayah')->with('success', 'Berhasil menghapus wilayah!');
         }
     }
 }
