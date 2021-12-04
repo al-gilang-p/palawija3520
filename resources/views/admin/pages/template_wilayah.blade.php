@@ -140,7 +140,7 @@
                     render: function (data, type, row) {
                         return `
                             <a href="wilayah/view/${row[9]}" title="lihat" class='btn btn-primary-outline btn-sm text-primary p-0 view'><i class="far fa-eye"></i></a>
-                            <button title="perbarui" class='btn btn-warning-outline btn-sm text-warning p-0 edit'><i class="far fa-edit"></i></button>
+                            <a href="wilayah/edit/${row[9]}" title="perbarui" class='btn btn-warning-outline btn-sm text-warning p-0 edit'><i class="far fa-edit"></i></a>
                             <form method="post" action="wilayah/${row[9]}">
                                 @csrf
                                 @method('delete')
@@ -163,14 +163,6 @@
                 cell.innerHTML = i + 1;
             });
         }).draw();
-
-        $('#dataTable .view').on('click', function () {
-            // console.log('view works!');
-        });
-
-        $('#dataTable .edit').on('click', function () {
-            // console.log('edit works!');
-        });
 
         $('#dataTable .delete').on('click', function (e) {
             const form = $(this).parents('form');
