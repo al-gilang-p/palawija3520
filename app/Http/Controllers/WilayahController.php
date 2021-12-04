@@ -26,6 +26,30 @@ class WilayahController extends Controller
         }
     }
 
+    public function update(Request $request, Response $response, $id)
+    {
+        $wilayah = Wilayah::findOrFail($id);
+        $wilayah->sr = $request->input('sr');
+        $wilayah->kd_kec = $request->input('kd_kec');
+        $wilayah->nm_kec = $request->input('nm_kec');
+        $wilayah->kd_desa = $request->input('kd_desa');
+        $wilayah->nm_desa = $request->input('nm_desa');
+        $wilayah->nbs = $request->input('nbs');
+        $wilayah->nks = $request->input('nks');
+        $wilayah->id_segmen = $request->input('id_segmen');
+        $wilayah->nm_lokasi = $request->input('nm_lokasi');
+        $wilayah->ar = $request->input('ar');
+        $wilayah->subsegmen = $request->input('subsegmen');
+        $wilayah->bln_panen = $request->input('bln_panen');
+        $wilayah->kd_pcl = $request->input('kd_pcl');
+        $wilayah->nm_pcl = $request->input('nm_pcl');
+        $wilayah->kd_pml = $request->input('kd_pml');
+        $wilayah->nm_pml = $request->input('nm_pml');
+        if ($wilayah->save()) {
+            return redirect()->route('admin.template_wilayah')->with('success', 'Berhasil memperbarui wilayah!');
+        }
+    }
+
     public function destroy(Request $request, Response $response, $id)
     {
         $wilayah = Wilayah::findOrFail($id);

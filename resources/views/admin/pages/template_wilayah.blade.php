@@ -165,16 +165,15 @@
         }).draw();
 
         $('#dataTable .view').on('click', function () {
-            console.log('view works!');
+            // console.log('view works!');
         });
 
         $('#dataTable .edit').on('click', function () {
-            console.log('edit works!');
+            // console.log('edit works!');
         });
 
         $('#dataTable .delete').on('click', function (e) {
             const form = $(this).parents('form');
-            console.log(form);
             Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
