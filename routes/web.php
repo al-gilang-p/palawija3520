@@ -45,5 +45,5 @@ Route::put('/wilayah/{id}', [WilayahController::class, 'update'])->name('admin.u
 Route::delete('/wilayah/{id}', [WilayahController::class, 'destroy'])->name('admin.destroy_wilayah');
 
 Route::get('/petugas', function () {
-    return view('admin.pages.template_wilayah');
+    return view('admin.pages.template_petugas');
 })->name('admin.template_petugas');

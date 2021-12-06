@@ -71,8 +71,8 @@
                         <h6 class="collapse-header">Jenis Template :</h6>
                         <a class="collapse-item @yield('template_wilayah_link')"
                             href="{{route('admin.template_wilayah')}}">Wilayah</a>
-                        <a class="collapse-item @yield('template_pengguna_link')"
-                            href="{{route('admin.template_petugas')}}">Pengguna</a>
+                        <a class="collapse-item @yield('template_petugas_link')"
+                            href="{{route('admin.template_petugas')}}">Petugas</a>
                     </div>
                 </div>
             </li>
