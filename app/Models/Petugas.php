@@ -10,9 +10,4 @@ class Petugas extends Model
     use HasFactory;
 
     protected $fillable = ['kd_pcl', 'username', 'password'];
-
-    public function wilayah()
-    {
-        return $this->belongTo(wilayah::class);
-    }
 }

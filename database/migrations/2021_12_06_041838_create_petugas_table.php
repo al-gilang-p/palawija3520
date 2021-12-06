@@ -15,12 +15,9 @@ class CreatePetugasTable extends Migration
     {
         Schema::create('petugas', function (Blueprint $table) {
             $table->id();
-            $table->char('kd_pcl', 3)->unique();
             $table->string('username')->unique();
             $table->string('password')->default(password_hash('123456', PASSWORD_DEFAULT));
             $table->timestamps();
-
-            $table->foreign('kd_pcl')->references('kd_pcl')->on('wilayahs')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
