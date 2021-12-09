@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\WilayahController;
+use App\Models\Petugas;
 use App\Models\Wilayah;
 use Illuminate\Support\Facades\Route;
 
@@ -45,5 +47,14 @@ Route::put('/wilayah/{id}', [WilayahController::class, 'update'])->name('admin.u
 Route::delete('/wilayah/{id}', [WilayahController::class, 'destroy'])->name('admin.destroy_wilayah');
 
 Route::get('/petugas', function () {
-    return view('admin.pages.template_petugas');
+    $distinct_petugas = Petugas::rightJoin('wilayahs', function ($join) {
+        $join->on('petugas.kd_pcl', '=', 'wilayahs.kd_pcl');
+    })->whereNull('petugas.username')->distinct()->get(['wilayahs.kd_pcl', 'wilayahs.nm_pcl'])->toArray();
+    $total_petugas = Wilayah::distinct()->count('kd_pcl');
+    $assigned_petugas = Petugas::distinct()->count('kd_pcl');
+    $unassigned_petugas = $total_petugas - $assigned_petugas;
+
+    return view('admin.pages.template_petugas', ['distinct_petugas' => $distinct_petugas, 'assigned_petugas' => $assigned_petugas, 'unassigned_petugas' => $unassigned_petugas]);
 })->name('admin.template_petugas');
+
+Route::post('/petugas', [PetugasController::class, 'store'])->name('admin.store_petugas');
