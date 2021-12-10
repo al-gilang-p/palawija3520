@@ -18,4 +18,12 @@ class PetugasController extends Controller
         }
         return redirect()->route('admin.template_petugas')->with('error', 'Gagal menambahkan username!');
     }
+
+    public function destroy(Request $request, Response $response, $id)
+    {
+        $petugas = Petugas::findOrFail($id);
+        if ($petugas->delete()) {
+            return redirect()->route('admin.template_petugas')->with('success', 'Berhasil menghapus petugas!');
+        }
+    }
 }

@@ -11,6 +11,24 @@
 @section('template_petugas_link', 'active')
 
 @section('content')
+@if (session('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Sukses!</strong> {{ session('success') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
+
+@if (session('error'))
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Sukses!</strong> {{ session('error') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
+
 <div class="card shadow mb-3">
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Assign Username Petugas</h6>
@@ -78,46 +96,69 @@
 @section('jspage')
 <script src="vendor/datatables/jquery.datatables.min.js"></script>
 <script src="vendor/datatables/datatables.bootstrap4.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js">
+</script>
 
 <script>
-    let t = $('#dataTable').DataTable({
-        'columnDefs': [{
-                'orderable': false,
-                'searchable': false,
-                'targets': 0
-            },
-            {
-                'targets': 4,
-                'orderable': false,
-                'searchable': false,
-                render: function (data, type, row) {
-                    return `
+    $(document).ready(function () {
+        let t = $('#dataTable').DataTable({
+            'columnDefs': [{
+                    'orderable': false,
+                    'searchable': false,
+                    'targets': 0
+                },
+                {
+                    'targets': 4,
+                    'orderable': false,
+                    'searchable': false,
+                    render: function (data, type, row) {
+                        return `
                     <div class="d-flex align-items-center justify-content-center">
                             <a href="" title="lihat" class='btn btn-primary-outline text-primary p-0 view'><i class="far fa-eye"></i></a>
                             <a href="" title="perbarui" class='btn btn-warning-outline text-warning p-0 edit'><i class="far fa-edit"></i></a>
-                            <form method="post" action="">
+                            <form method="post" action="petugas/${row[4]}">
                                 @csrf
                                 @method('delete')
                                 <button type="button" title="hapus" class='btn btn-danger-outline text-danger p-0 delete'><i class="far fa-trash-alt"></i></button>
                             </form>
                             </div>
                         `;
+                    }
                 }
-            }
-        ],
-        "order": [
-            [1, "asc"]
-        ]
-    });
-
-    t.on('order.dt search.dt', function () {
-        t.column(0, {
-            search: 'applied',
-            order: 'applied'
-        }).nodes().each(function (cell, i) {
-            cell.innerHTML = i + 1;
+            ],
+            "order": [
+                [1, "asc"]
+            ]
         });
-    }).draw();
+
+        t.on('order.dt search.dt', function () {
+            t.column(0, {
+                search: 'applied',
+                order: 'applied'
+            }).nodes().each(function (cell, i) {
+                cell.innerHTML = i + 1;
+            });
+        }).draw();
+
+        $('#dataTable .delete').on('click', function (e) {
+            const form = $(this).parents('form');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.LoadingOverlay("show");
+                    form.submit();
+                }
+            });
+        });
+    });
 
 </script>
 @endsection

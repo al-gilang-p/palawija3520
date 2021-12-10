@@ -53,11 +53,12 @@ Route::get('/petugas', function () {
     $total_petugas = Wilayah::distinct()->count('kd_pcl');
     $assigned_petugas = Petugas::distinct()->count('kd_pcl');
     $unassigned_petugas = $total_petugas - $assigned_petugas;
-    $petugas = Petugas::rightJoin('wilayahs', function ($join) {
+    $petugas = Petugas::leftJoin('wilayahs', function ($join) {
         $join->on('petugas.kd_pcl', '=', 'wilayahs.kd_pcl');
-    })->get(['petugas.id', 'petugas.kd_pcl', 'wilayahs.nm_pcl', 'petugas.username'])->toArray();
+    })->distinct()->get(['petugas.id', 'petugas.kd_pcl', 'wilayahs.nm_pcl', 'petugas.username'])->toArray();
 
     return view('admin.pages.template_petugas', ['petugas' => $petugas, 'distinct_petugas' => $distinct_petugas, 'assigned_petugas' => $assigned_petugas, 'unassigned_petugas' => $unassigned_petugas]);
 })->name('admin.template_petugas');
 
 Route::post('/petugas', [PetugasController::class, 'store'])->name('admin.store_petugas');
+Route::delete('/petugas/{id}', [PetugasController::class, 'destroy'])->name('admin.destroy_petugas');
