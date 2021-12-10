@@ -1,6 +1,6 @@
 @extends('admin.layouts.base')
 
-@section('page_heading', 'Petugas')
+{{-- @section('page_heading', 'Petugas') --}}
 
 @section('template_link', 'active')
 
@@ -115,7 +115,7 @@
                     render: function (data, type, row) {
                         return `
                     <div class="d-flex align-items-center justify-content-center">
-                            <a href="" title="lihat" class='btn btn-primary-outline text-primary p-0 view'><i class="far fa-eye"></i></a>
+                            <a href="petugas/view/${row[4]}" title="lihat" class='btn btn-primary-outline text-primary p-0 view'><i class="far fa-eye"></i></a>
                             <a href="" title="perbarui" class='btn btn-warning-outline text-warning p-0 edit'><i class="far fa-edit"></i></a>
                             <form method="post" action="petugas/${row[4]}">
                                 @csrf

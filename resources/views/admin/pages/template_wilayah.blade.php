@@ -1,6 +1,6 @@
 @extends('admin.layouts.base')
 
-@section('page_heading', 'Wilayah')
+{{-- @section('page_heading', 'Wilayah') --}}
 
 @section('template_link', 'active')
 
