@@ -59,39 +59,32 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item @yield('template_link')">
-                <a class="nav-link @yield('template_arrow', 'collapsed')" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Template</span>
-                </a>
-                <div id="collapseTwo" class="collapse @yield('template_collapse')"
-                    aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Jenis Template :</h6>
-                        <a class="collapse-item @yield('template_wilayah_link')"
-                            href="{{route('admin.template_wilayah')}}">Wilayah</a>
-                        <a class="collapse-item @yield('template_petugas_link')"
-                            href="{{route('admin.template_petugas')}}">Petugas</a>
-                    </div>
-                </div>
+            <li class="nav-item @yield('wilayah_link')">
+                <a class="nav-link" href="{{route('admin.template_wilayah')}}">
+                    <i class="fas fa-fw fa-layer-group"></i>
+                    <span>Wilayah</span></a>
             </li>
 
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item @yield('rekap_link')">
-                <a class="nav-link @yield('rekap_arrow', 'collapsed')" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Rekap</span>
-                </a>
-                <div id="collapseUtilities" class="collapse @yield('rekap_collapse')"
-                    aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Jenis Rekap:</h6>
-                        <a class="collapse-item @yield('rekap_palawija_link')" href="#">Palawija</a>
-                    </div>
-                </div>
+            <li class="nav-item @yield('petugas_link')">
+                <a class="nav-link" href="{{route('admin.template_petugas')}}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Petugas</span></a>
             </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Operator
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Dokumen</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

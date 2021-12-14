@@ -1,12 +1,6 @@
 @extends('admin.layouts.base')
 
-@section('template_link', 'active')
-
-@section('template_arrow', 'active')
-
-@section('template_collapse', 'show')
-
-@section('template_petugas_link', 'active')
+@section('petugas_link', 'active')
 
 @section('content')
 <div class="card shadow mb-3">

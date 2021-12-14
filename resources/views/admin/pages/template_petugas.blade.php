@@ -1,12 +1,6 @@
 @extends('admin.layouts.base')
 
-@section('template_link', 'active')
-
-@section('template_arrow', 'active')
-
-@section('template_collapse', 'show')
-
-@section('template_petugas_link', 'active')
+@section('petugas_link', 'active')
 
 @section('content')
 @if (session('success'))
@@ -112,14 +106,14 @@
                     'searchable': false,
                     render: function (data, type, row) {
                         return `
-                    <div class="d-flex align-items-center justify-content-center">
-                            <a href="petugas/view/${row[4]}" title="lihat" class='btn btn-primary-outline text-primary p-0 view'><i class="far fa-eye"></i></a>
-                            <a href="petugas/edit/${row[4]}" title="perbarui" class='btn btn-warning-outline text-warning p-0 edit'><i class="far fa-edit"></i></a>
-                            <form method="post" action="petugas/${row[4]}">
-                                @csrf
-                                @method('delete')
-                                <button type="button" title="hapus" class='btn btn-danger-outline text-danger p-0 delete'><i class="far fa-trash-alt"></i></button>
-                            </form>
+                            <div class="d-flex align-items-center justify-content-center">
+                                <a href="petugas/view/${row[4]}" title="lihat" class='btn btn-primary-outline text-primary p-0 view'><i class="far fa-eye"></i></a>
+                                <a href="petugas/edit/${row[4]}" title="perbarui" class='btn btn-warning-outline text-warning p-0 edit'><i class="far fa-edit"></i></a>
+                                <form method="post" action="petugas/${row[4]}">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="button" title="hapus" class='btn btn-danger-outline text-danger p-0 delete'><i class="far fa-trash-alt"></i></button>
+                                </form>
                             </div>
                         `;
                     }
