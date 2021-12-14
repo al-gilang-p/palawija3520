@@ -19,6 +19,15 @@ class PetugasController extends Controller
         return redirect()->route('admin.template_petugas')->with('error', 'Gagal menambahkan username!');
     }
 
+    public function update(Request $request, Response $response, $id)
+    {
+        $petugas = Petugas::findOrFail($id);
+        $petugas->username = $request->input('username');
+        if ($petugas->save()) {
+            return redirect()->route('admin.template_petugas')->with('success', 'Berhasil memperbarui username!');
+        }
+    }
+
     public function destroy(Request $request, Response $response, $id)
     {
         $petugas = Petugas::findOrFail($id);

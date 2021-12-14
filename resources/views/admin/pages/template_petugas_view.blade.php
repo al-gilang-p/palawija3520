@@ -6,40 +6,40 @@
 
 @section('template_collapse', 'show')
 
-@section('template_wilayah_link', 'active')
+@section('template_petugas_link', 'active')
 
 @section('content')
 <div class="card shadow mb-3">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Wilayah Kerja</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Petugas</h6>
     </div>
     <div class="card-body p-4">
         <div class="form-row">
             <div class="form-group col-md-2">
                 <label for="kd_pcl">Kode Petugas</label>
-                <input type="number" class="form-control" placeholder="010" name="kd_pcl" value="{{ $petugas['kd_pcl'] }}"
+                <input type="number" class="form-control" placeholder="001" name="kd_pcl" value="{{ $petugas['kd_pcl'] }}"
                     readonly>
             </div>
             <div class="form-group col-md-5">
                 <label for="nm_pcl">Nama Petugas</label>
-                <input type="text" class="form-control" placeholder="010" name="nm_pcl" value="{{ $petugas['nm_pcl'] }}"
+                <input type="text" class="form-control" placeholder="Nama" name="nm_pcl" value="{{ $petugas['nm_pcl'] }}"
                     readonly>
             </div>
             <div class="form-group col-md-5">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" placeholder="010" name="username" value="{{ $petugas['username'] }}"
+                <input type="text" class="form-control" placeholder="username" name="username" value="{{ $petugas['username'] }}"
                     readonly>
             </div>
         </div>
         <hr>
-        <a href="{{ route('admin.template_wilayah') }}" class="btn btn-sm shadow-sm btn-secondary btn-icon-split">
+        <a href="{{ route('admin.template_petugas') }}" class="btn btn-sm shadow-sm btn-secondary btn-icon-split">
             <span class="icon text-white-50">
                 <i class="fas fa-arrow-left"></i>
             </span>
             <span class="text">kembali</span>
         </a>
         <div class="float-right d-flex">
-            <form method="post" action="{{ route('admin.destroy_wilayah', [ "id" => $petugas['id'] ] ) }}">
+            <form method="post" action="{{ route('admin.destroy_petugas', [ "id" => $petugas['id'] ] ) }}">
                 @csrf
                 @method('delete')
                 <button type="button" id="btn-delete" class="mx-1 btn btn-sm shadow-sm btn-danger btn-icon-split">
@@ -49,7 +49,7 @@
                     <span class="text">Hapus</span>
                 </button>
             </form>
-            <a href="{{ route('admin.template_wilayah_edit', [ "id" => $petugas['id'] ] ) }}" class="btn btn-sm shadow-sm btn-warning btn-icon-split">
+            <a href="{{ route('admin.template_petugas_edit', [ "id" => $petugas['id'] ] ) }}" class="btn btn-sm shadow-sm btn-warning btn-icon-split">
                 <span class="icon text-white-50">
                     <i class="fas fa-pen"></i>
                 </span>

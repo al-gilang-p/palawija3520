@@ -67,7 +67,17 @@ Route::get('/petugas/view/{id}', function ($id) {
     })->where('petugas.id', '=', $id)->distinct()->get(['petugas.id', 'petugas.kd_pcl', 'wilayahs.nm_pcl', 'petugas.username'])->toArray();
     return view('admin.pages.template_petugas_view', ['petugas' => $petugas[0]]);
 
-})->name('admin.template_petugas_view');
+})->name('admin.template_petugas_edit');
+
+Route::get('/petugas/edit/{id}', function ($id) {
+
+    $petugas = Petugas::leftJoin('wilayahs', function ($join) {
+        $join->on('petugas.kd_pcl', '=', 'wilayahs.kd_pcl');
+    })->where('petugas.id', '=', $id)->distinct()->get(['petugas.id', 'petugas.kd_pcl', 'wilayahs.nm_pcl', 'petugas.username'])->toArray();
+    return view('admin.pages.template_petugas_edit', ['petugas' => $petugas[0]]);
+
+})->name('admin.template_petugas_edit');
 
 Route::post('/petugas', [PetugasController::class, 'store'])->name('admin.store_petugas');
+Route::put('/petugas/{id}', [PetugasController::class, 'update'])->name('admin.update_petugas');
 Route::delete('/petugas/{id}', [PetugasController::class, 'destroy'])->name('admin.destroy_petugas');
