@@ -81,3 +81,7 @@ Route::get('/petugas/edit/{id}', function ($id) {
 Route::post('/petugas', [PetugasController::class, 'store'])->name('admin.store_petugas');
 Route::put('/petugas/{id}', [PetugasController::class, 'update'])->name('admin.update_petugas');
 Route::delete('/petugas/{id}', [PetugasController::class, 'destroy'])->name('admin.destroy_petugas');
+
+Route::get('/dokumen', function () {
+    return view('admin.pages.dokumen_view');
+})->name('admin.dokumen_view');

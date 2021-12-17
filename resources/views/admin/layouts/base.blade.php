@@ -79,8 +79,8 @@
                 Operator
             </div>
 
-            <li class="nav-item">
-                <a class="nav-link" href="#">
+            <li class="nav-item @yield('dokumen_link')">
+                <a class="nav-link" href="{{ route('admin.dokumen_view') }}">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Dokumen</span></a>
             </li>
