@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\WilayahController;
+use App\Models\Dokumen;
 use App\Models\Petugas;
 use App\Models\Wilayah;
 use Illuminate\Support\Facades\Route;
@@ -83,5 +84,9 @@ Route::put('/petugas/{id}', [PetugasController::class, 'update'])->name('admin.u
 Route::delete('/petugas/{id}', [PetugasController::class, 'destroy'])->name('admin.destroy_petugas');
 
 Route::get('/dokumen', function () {
-    return view('admin.pages.dokumen_view');
+    $wilayah = Wilayah::leftJoin('dokumens', function($join) {
+        $join->on('wilayahs.id', '=', 'dokumens.wilayah_id');
+    })->first(['wilayahs.*', 'dokumens.id']);
+
+    return view('admin.pages.dokumen_view', ['wilayah' => $wilayah]);
 })->name('admin.dokumen_view');
