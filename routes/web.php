@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\WilayahController;
-use App\Models\Dokumen;
 use App\Models\Petugas;
 use App\Models\Wilayah;
 use Illuminate\Support\Facades\Route;
@@ -23,24 +22,18 @@ Route::get('/', function () {
 })->name('admin.dashboard');
 
 Route::get('/wilayah', function () {
-
     $wilayahs = Wilayah::all()->toArray();
     return view('admin.pages.template_wilayah', ['wilayah' => $wilayahs]);
-
 })->name('admin.template_wilayah');
 
 Route::get('/wilayah/view/{id}', function ($id) {
-
     $wilayah = Wilayah::findOrFail($id)->toArray();
     return view('admin.pages.template_wilayah_view', ['wilayah' => $wilayah]);
-
 })->name('admin.template_wilayah_view');
 
 Route::get('/wilayah/edit/{id}', function ($id) {
-
     $wilayah = Wilayah::findOrFail($id)->toArray();
     return view('admin.pages.template_wilayah_edit', ['wilayah' => $wilayah]);
-
 })->name('admin.template_wilayah_edit');
 
 Route::post('/wilayah', [WilayahController::class, 'store'])->name('admin.store_wilayah');
@@ -62,21 +55,17 @@ Route::get('/petugas', function () {
 })->name('admin.template_petugas');
 
 Route::get('/petugas/view/{id}', function ($id) {
-
     $petugas = Petugas::leftJoin('wilayahs', function ($join) {
         $join->on('petugas.kd_pcl', '=', 'wilayahs.kd_pcl');
     })->where('petugas.id', '=', $id)->distinct()->get(['petugas.id', 'petugas.kd_pcl', 'wilayahs.nm_pcl', 'petugas.username'])->toArray();
     return view('admin.pages.template_petugas_view', ['petugas' => $petugas[0]]);
-
 })->name('admin.template_petugas_edit');
 
 Route::get('/petugas/edit/{id}', function ($id) {
-
     $petugas = Petugas::leftJoin('wilayahs', function ($join) {
         $join->on('petugas.kd_pcl', '=', 'wilayahs.kd_pcl');
     })->where('petugas.id', '=', $id)->distinct()->get(['petugas.id', 'petugas.kd_pcl', 'wilayahs.nm_pcl', 'petugas.username'])->toArray();
     return view('admin.pages.template_petugas_edit', ['petugas' => $petugas[0]]);
-
 })->name('admin.template_petugas_edit');
 
 Route::post('/petugas', [PetugasController::class, 'store'])->name('admin.store_petugas');
@@ -84,9 +73,17 @@ Route::put('/petugas/{id}', [PetugasController::class, 'update'])->name('admin.u
 Route::delete('/petugas/{id}', [PetugasController::class, 'destroy'])->name('admin.destroy_petugas');
 
 Route::get('/dokumen', function () {
-    $wilayah = Wilayah::leftJoin('dokumens', function($join) {
+    $wilayah = Wilayah::leftJoin('dokumens', function ($join) {
         $join->on('wilayahs.id', '=', 'dokumens.wilayah_id');
-    })->first(['wilayahs.*', 'dokumens.id']);
+    })->get(['wilayahs.*', 'dokumens.id as dokumen_id'])->toArray();
 
-    return view('admin.pages.dokumen_view', ['wilayah' => $wilayah]);
-})->name('admin.dokumen_view');
+    return view('admin.pages.dokumen', ['wilayah' => $wilayah]);
+})->name('admin.dokumen');
+
+Route::get('/dokumen/entry/{id}', function ($id) {
+    $wilayah = Wilayah::findOrFail($id)->first();
+
+    return view('admin.pages.dokumen_entry', ['wilayah' => $wilayah]);
+})->name('admin.dokumen_entry');
+
+Route::post('/dokumen', [DokumenController::class, 'store'])->name('admin.store_dokumen');
