@@ -15,7 +15,7 @@
             <div class="form-group">
                 <div class="form-group">
                     <label for="jum_petak">201. Jumlah Petak</label>
-                    <input type="number" class="form-control" placeholder="" name="jum_petak" required>
+                    <input type="number" min="0" class="form-control" placeholder="" name="jum_petak" required>
                 </div>
             </div>
             <div class="form-row">
@@ -26,13 +26,13 @@
                         <small class="form-text text-muted">
                             Barat-Timur (X)
                         </small>
-                    <input type="text" class="form-control" placeholder="" name="pjgsisi_bt" required>
+                    <input type="number" min="0" class="form-control" placeholder="" name="pjgsisi_bt" required>
                 </div>
                 <div class="form-group col-md-6">
                         <small class="form-text text-muted">
                             Utara-Selatan (Y)
                         </small>
-                    <input type="text" class="form-control" placeholder="" name="pjgsisi_us" required>
+                    <input type="number" min="0" class="form-control" placeholder="" name="pjgsisi_us" required>
                 </div>
             </div>
             <div class="form-row">
@@ -43,19 +43,19 @@
                     <small class="form-text text-muted">
                         Halaman 
                     </small>
-                    <input type="text" class="form-control" placeholder="" name="rand_hal" required>
+                    <input type="number" min="0" max="2" step="1" class="form-control" placeholder="" name="rand_hal" required>
                 </div>
                 <div class="form-group col-md-4">
                     <small class="form-text text-muted">
                         Baris 
                     </small>
-                    <input type="text" class="form-control" placeholder="" name="rand_bar" required>
+                    <input type="number" min="0" class="form-control" placeholder="" name="rand_bar" required>
                 </div>
                 <div class="form-group col-md-4">
                     <small class="form-text text-muted">
                         Kolom 
                     </small>
-                    <input type="text" class="form-control" placeholder="" name="rand_kol" required>
+                    <input type="number" min="0" class="form-control" placeholder="" name="rand_kol" required>
                 </div>
             </div>
             <div class="form-row">
@@ -66,18 +66,18 @@
                     <small class="form-text text-muted">
                         Barat-Timur (X)
                     </small>
-                    <input type="text" class="form-control" placeholder="" name="randterpilih_bt" required>
+                    <input type="number" min="0" class="form-control" placeholder="" name="randterpilih_bt" required>
                 </div>
                 <div class="form-group col-md-6">
                     <small class="form-text text-muted">
                         Utara-Selatan (Y)
                     </small>
-                    <input type="number" class="form-control" placeholder="" name="randterpilih_us" required>
+                    <input type="number" min="0" class="form-control" placeholder="" name="randterpilih_us" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="tgl_ubin">502. Tanggal Pencacahan</label>
-                <input type="numbert" class="form-control" placeholder="" name="tgl_ubin" required>
+                <input type="date" class="form-control" placeholder="" name="tgl_ubin" required>
             </div>
             <div class="form-group">
                 <label for="jenis_lahan">601. Jenis Lahan</label>
