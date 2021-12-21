@@ -3,6 +3,7 @@
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\WilayahController;
 use App\Http\Controllers\DokumenController;
+use App\Models\Dokumen;
 use App\Models\Petugas;
 use App\Models\Wilayah;
 use Illuminate\Support\Facades\Route;
@@ -86,6 +87,18 @@ Route::get('/dokumen/entry/{id}', function ($id) {
 
     return view('admin.pages.dokumen_entry', ['wilayah' => $wilayah]);
 })->name('admin.dokumen_entry');
+
+Route::get('/dokumen/view/{id}', function ($id) {
+    $dokumen = Dokumen::findOrFail($id)->first();
+
+    return view('admin.pages.dokumen_view', ['dokumen' => $dokumen]);
+})->name('admin.dokumen_view');
+
+Route::get('/dokumen/edit/{id}', function ($id) {
+    $dokumen = Dokumen::findOrFail($id)->first();
+
+    return view('admin.pages.dokumen_edit', ['dokumen' => $dokumen]);
+})->name('admin.dokumen_edit');
 
 Route::post('/dokumen', [DokumenController::class, 'store'])->name('admin.store_dokumen');
 Route::delete('/dokumen/{id}', [DokumenController::class, 'destroy'])->name('admin.destroy_dokumen');

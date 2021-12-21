@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use App\Imports\WilayahsImport;
 use App\Models\Wilayah;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Maatwebsite\Excel\Facades\Excel;
 use Maatwebsite\Excel\Validators\ValidationException;
 
 class WilayahController extends Controller
 {
-    public function store(Request $request, Response $response)
+    public function store(Request $request)
     {
         $request->validate([
             'temp_file' => 'bail|required|file|mimes:xlsx',
@@ -22,11 +21,12 @@ class WilayahController extends Controller
             return redirect()->route('admin.template_wilayah')->with('success', 'Berhasil menambahkan wilayah!');
         } catch (ValidationException $e) {
             $failures = $e->failures();
+            var_dump($failures);
             return redirect()->route('admin.template_wilayah')->with('error', 'Gagal menambahkan wilayah!');
         }
     }
 
-    public function update(Request $request, Response $response, $id)
+    public function update(Request $request, $id)
     {
         $wilayah = Wilayah::findOrFail($id);
         $wilayah->sr = $request->input('sr');
@@ -50,7 +50,7 @@ class WilayahController extends Controller
         }
     }
 
-    public function destroy(Request $request, Response $response, $id)
+    public function destroy($id)
     {
         $wilayah = Wilayah::findOrFail($id);
         if ($wilayah->delete()) {

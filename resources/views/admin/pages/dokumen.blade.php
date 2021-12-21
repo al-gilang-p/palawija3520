@@ -86,9 +86,9 @@
                         }
                         return `
                             <div class="d-flex align-items-center justify-content-center">
-                                <a href="" title="lihat" class='btn btn-primary-outline p-0 text-primary view'><i class="far fa-eye"></i></a>
-                                <a href="" title="perbarui" class='btn btn-warning-outline p-0 text-warning edit'><i class="far fa-edit"></i></a>
-                                <form method="post" action="">
+                                <a href="dokumen/view/${row[8]}" title="lihat" class='btn btn-primary-outline p-0 text-primary view'><i class="far fa-eye"></i></a>
+                                <a href="dokumen/edit/${row[8]}" title="perbarui" class='btn btn-warning-outline p-0 text-warning edit'><i class="far fa-edit"></i></a>
+                                <form method="post" action="dokumen/${row[8]}">
                                     @csrf
                                     @method('delete')
                                     <button type="button" title="hapus" class='btn btn-danger-outline p-0 text-danger delete'><i class="far fa-trash-alt"></i></button>
@@ -112,6 +112,24 @@
                 cell.innerHTML = i + 1;
             });
         }).draw();
+
+        $('#dataTable .delete').on('click', function (e) {
+            const form = $(this).parents('form');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.LoadingOverlay("show");
+                    form.submit();
+                }
+            });
+        });
     });
 
 </script>
