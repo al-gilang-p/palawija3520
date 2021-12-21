@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Petugas;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class PetugasController extends Controller
 {
-    public function store(Request $request, Response $response)
+    public function store(Request $request)
     {
         $petugas = new Petugas;
         $petugas->kd_pcl = $request->input('kd_pcl');
@@ -19,7 +18,7 @@ class PetugasController extends Controller
         return redirect()->route('admin.template_petugas')->with('error', 'Gagal menambahkan username!');
     }
 
-    public function update(Request $request, Response $response, $id)
+    public function update(Request $request, $id)
     {
         $petugas = Petugas::findOrFail($id);
         $petugas->username = $request->input('username');
@@ -28,7 +27,7 @@ class PetugasController extends Controller
         }
     }
 
-    public function destroy(Request $request, Response $response, $id)
+    public function destroy(Request $request, $id)
     {
         $petugas = Petugas::findOrFail($id);
         if ($petugas->delete()) {
@@ -36,4 +35,3 @@ class PetugasController extends Controller
         }
     }
 }
-
