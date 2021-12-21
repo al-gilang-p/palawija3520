@@ -40,4 +40,12 @@ class DokumenController extends Controller
             return redirect()->route('admin.dokumen')->with('success', 'Berhasil mengentry dokumen!');
         }
     }
+
+    public function destroy($id)
+    {
+        $dokumen = Dokumen::findOrFail($id);
+        if ($dokumen->delete()) {
+            return redirect()->route('admin.dokumen')->with('success', 'Berhasil menghapus dokumen!');
+        }
+    }
 }

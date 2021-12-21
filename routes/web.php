@@ -88,3 +88,4 @@ Route::get('/dokumen/entry/{id}', function ($id) {
 })->name('admin.dokumen_entry');
 
 Route::post('/dokumen', [DokumenController::class, 'store'])->name('admin.store_dokumen');
+Route::delete('/dokumen/{id}', [DokumenController::class, 'destroy'])->name('admin.destroy_dokumen');
