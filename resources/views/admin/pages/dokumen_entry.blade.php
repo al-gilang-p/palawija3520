@@ -81,7 +81,14 @@
             </div>
             <div class="form-group">
                 <label for="jenis_lahan">601. Jenis Lahan</label>
-                <input type="text" class="form-control" placeholder="" name="jenis_lahan" required>
+                <select class="custom-select" name="jenis_lahan" required>
+                    <option disabled selected>Pilih Jenis Lahan</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                    <option value="4">Four</option>
+                    <option value="5">Five</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="luas_ubin">604. Luas Ubin</label>
@@ -160,11 +167,24 @@
             </div>
             <div class="form-group">
                 <label for="opt_thnini">804. Serangan OPT Tahun Ini</label>
-                <input type="text" class="form-control" placeholder="" name="opt_thnini" required>
+                <select class="custom-select" name="opt_thnini" required>
+                    <option disabled selected>Pilih OPT</option>
+                    <option value="1">Berat</option>
+                    <option value="2">Sedang</option>
+                    <option value="3">Ringan</option>
+                    <option value="4">Four</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="alas_perontokan">808. Alas Perontokan</label>
-                <input type="text" class="form-control" placeholder="" name="alas_perontokan" required>
+                <select class="custom-select" name="alas_perontokan" required>
+                    <option disabled selected>Pilih Alas Perontokan</option>
+                    <option value="1">&lt 4,0</option>
+                    <option value="2">4,0-15,99</option>
+                    <option value="3">16,0-35,99</option>
+                    <option value="4">&gt 36,0</option>
+                    <option value="5">Tidak Menggunakan</option>
+                </select>
             </div>
 
             <hr>

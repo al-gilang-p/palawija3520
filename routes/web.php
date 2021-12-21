@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\WilayahController;
+use App\Http\Controllers\DokumenController;
 use App\Models\Petugas;
 use App\Models\Wilayah;
 use Illuminate\Support\Facades\Route;

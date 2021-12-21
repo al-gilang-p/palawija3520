@@ -13,6 +13,7 @@ class DokumenController extends Controller
 
         $dokumen->jum_petak = $request->input('jum_petak');
         $dokumen->pjgsisi_bt = $request->input('pjgsisi_bt');
+        $dokumen->pjgsisi_us = $request->input('pjgsisi_us');
         $dokumen->rand_hal = $request->input('rand_hal');
         $dokumen->rand_bar = $request->input('rand_bar');
         $dokumen->rand_kol = $request->input('rand_kol');
