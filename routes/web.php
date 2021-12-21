@@ -101,4 +101,5 @@ Route::get('/dokumen/edit/{id}', function ($id) {
 })->name('admin.dokumen_edit');
 
 Route::post('/dokumen', [DokumenController::class, 'store'])->name('admin.store_dokumen');
+Route::put('/dokumen/{id}', [DokumenController::class, 'update'])->name('admin.update_dokumen');
 Route::delete('/dokumen/{id}', [DokumenController::class, 'destroy'])->name('admin.destroy_dokumen');

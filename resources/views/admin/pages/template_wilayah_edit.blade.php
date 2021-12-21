@@ -118,29 +118,10 @@
 @endsection
 
 @section('jspage')
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js">
 </script>
 
 <script>
-    $('button#btn-delete').on('click', function (e) {
-        const form = $(this).parents('form');
-
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.LoadingOverlay("show");
-                form.submit();
-            }
-        });
-    });
 
 </script>
 @endsection
