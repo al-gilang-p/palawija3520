@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\DokumenController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\WilayahController;
-use App\Http\Controllers\DokumenController;
 use App\Models\Dokumen;
 use App\Models\Petugas;
 use App\Models\Wilayah;

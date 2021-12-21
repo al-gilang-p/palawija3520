@@ -18,6 +18,7 @@ class CreatePetugasTable extends Migration
             $table->string('username')->unique();
             $table->char('kd_pcl', 3)->unique();
             $table->string('password')->default(password_hash('123456', PASSWORD_DEFAULT));
+            $table->enum('role', ["admin", "operator"])->default("operator");
             $table->timestamps();
         });
     }
