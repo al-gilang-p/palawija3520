@@ -6,6 +6,7 @@ use App\Http\Controllers\WilayahController;
 use App\Models\Dokumen;
 use App\Models\Petugas;
 use App\Models\Wilayah;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,12 +20,11 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
-Route::get('/login', function () {
+Route::get('/', function (Request $request) {
+    if($request->session()->exists('user_id')) {
+        return view('admin.pages.dashboard');
+    }
     return view('login');
-})->name('login');
-
-Route::get('/', function () {
-    return view('admin.pages.dashboard');
 })->name('admin.dashboard');
 
 Route::get('/wilayah', function () {
@@ -77,6 +77,8 @@ Route::get('/petugas/edit/{id}', function ($id) {
 Route::post('/petugas', [PetugasController::class, 'store'])->name('admin.store_petugas');
 Route::put('/petugas/{id}', [PetugasController::class, 'update'])->name('admin.update_petugas');
 Route::delete('/petugas/{id}', [PetugasController::class, 'destroy'])->name('admin.destroy_petugas');
+Route::post('/login', [PetugasController::class, 'login'])->name('login_petugas');
+Route::get('/logout', [PetugasController::class, 'logout'])->name('logout_petugas');
 
 Route::get('/dokumen', function () {
     $wilayah = Wilayah::leftJoin('dokumens', function ($join) {

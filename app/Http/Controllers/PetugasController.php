@@ -34,4 +34,22 @@ class PetugasController extends Controller
             return redirect()->route('admin.template_petugas')->with('success', 'Berhasil menghapus petugas!');
         }
     }
+
+    public function login(Request $request)
+    {
+        $username = $request->input('username');
+        $password = $request->input('password');
+
+        $petugas = Petugas::where('username', '=', $username)->first();
+        if(password_verify($password, $petugas->password)) {
+            $request->session()->put('user_id', $petugas->id);
+            return redirect()->route('admin.dashboard');
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush(); 
+        return redirect()->route('admin.dashboard');
+    }
 }

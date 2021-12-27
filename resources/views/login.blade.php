@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Palawija - BPS Kabupaten Magetan</title>
+    <title>Ubinan Palawija - BPS Kabupaten Magetan</title>
 
     <!-- Custom fonts for this template-->
     <link href={{ asset( "vendor/fontawesome-free/css/all.min.css" ); }} rel="stylesheet" type="text/css">
@@ -37,10 +37,16 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="p-5">
+                                    <hr>
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h6 text-gray-900 mb-4">- BPS Kabupaten Magetan -</h1>
                                     </div>
-                                    <form action="" method="post" class="user">
+                                    <hr>
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Ubinan Palawija</h1>
+                                    </div>
+                                    <form action="{{ route('login_petugas') }}" method="post" class="user">
+                                        @csrf
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" id="username"
                                                 name="username" placeholder="Enter Username">
@@ -75,6 +81,14 @@
 
     <!-- Custom scripts for all pages-->
     <script src={{ asset( "js/sb-admin-2.min.js"); }}></script>
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js">
+    </script>
+
+    <script>
+        $('form').submit(function(){
+            $.LoadingOverlay("show");
+        });
+    </script>
 
 </body>
 
