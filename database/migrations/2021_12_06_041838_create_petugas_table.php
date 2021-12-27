@@ -16,7 +16,7 @@ class CreatePetugasTable extends Migration
         Schema::create('petugas', function (Blueprint $table) {
             $table->id();
             $table->string('username')->unique();
-            $table->char('kd_pcl', 3)->unique();
+            $table->char('kd_pcl', 3)->unique()->nullable();
             $table->string('password')->default(password_hash('123456', PASSWORD_DEFAULT));
             $table->enum('role', ["admin", "operator"])->default("operator");
             $table->timestamps();
