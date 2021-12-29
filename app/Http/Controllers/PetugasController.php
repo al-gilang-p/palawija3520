@@ -43,13 +43,15 @@ class PetugasController extends Controller
         $petugas = Petugas::where('username', '=', $username)->first();
         if(password_verify($password, $petugas->password)) {
             $request->session()->put('user_id', $petugas->id);
-            return redirect()->route('admin.dashboard');
+            $request->session()->put('kd_pcl', $petugas->kd_pcl);
+            $request->session()->put('role', $petugas->role);
+            return redirect()->route('dashboard');
         }
     }
 
     public function logout(Request $request)
     {
         $request->session()->flush(); 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('dashboard');
     }
 }
