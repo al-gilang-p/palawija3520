@@ -12,6 +12,7 @@
         <form action="{{ route('admin.store_dokumen') }}" method="post">
             @csrf
             <input type=hidden value="{{ $wilayah['id']}}" name="wilayah_id" />
+            <input type=hidden value="{{ session()->get('user_id') }}" name="petugas_id" />
             <div class="form-group">
                 <div class="form-group">
                     <label for="jum_petak">201. Jumlah Petak</label>

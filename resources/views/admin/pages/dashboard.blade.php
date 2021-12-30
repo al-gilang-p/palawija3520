@@ -1,6 +1,7 @@
 @extends('admin.layouts.base')
 
 @section('content')
+@if(session('role') == 'admin')
 <div class="row">
 
     <div class="col-xl-6 col-md-6 mb-4">
@@ -40,6 +41,7 @@
     </div>
 
 </div>
+@endif
 
 <div class="row">
 

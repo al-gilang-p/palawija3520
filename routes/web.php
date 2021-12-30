@@ -6,6 +6,7 @@ use App\Http\Controllers\WilayahController;
 use App\Models\Dokumen;
 use App\Models\Petugas;
 use App\Models\Wilayah;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,13 +22,21 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function (Request $request) {
-    $wilayah = Wilayah::count();
-    $petugas = Petugas::whereNotNull('kd_pcl')->count();
-    $jumlahDokumen = Wilayah::count();
-    $entriDokumen = Dokumen::count();
-
     if($request->session()->exists('user_id')) {
-        return view('admin.pages.dashboard', ['wilayah' => $wilayah, 'petugas' => $petugas, 'jumlahDokumen' => $jumlahDokumen, 'entriDokumen' => $entriDokumen]);
+        if ($request->session()->get('role') == 'admin') {
+            $wilayah = Wilayah::count();
+            $petugas = Petugas::whereNotNull('kd_pcl')->count();
+            $jumlahDokumen = $wilayah;
+            $entriDokumen = Dokumen::count();
+            $data = ['wilayah' => $wilayah, 'petugas' => $petugas, 'jumlahDokumen' => $jumlahDokumen, 'entriDokumen' => $entriDokumen];
+        } else {
+            $jumlahDokumen = Wilayah::where('kd_pcl', '=', $request->session()->get('kd_pcl'))->count();
+            $entriDokumen = Dokumen::whereHas('wilayah', function (Builder $query) use($request) {
+                $query->where('kd_pcl', '=', $request->session()->get('kd_pcl'));
+            })->count();
+            $data = ['jumlahDokumen' => $jumlahDokumen, 'entriDokumen' => $entriDokumen];
+        }
+        return view('admin.pages.dashboard', $data);
     }
 
     return view('login');

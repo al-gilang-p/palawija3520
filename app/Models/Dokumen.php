@@ -12,6 +12,11 @@ class Dokumen extends Model
 
     public function wilayah()
     {
-        return $this->belongsTo('Wilayah::class');
+        return $this->belongsTo(Wilayah::class);
+    }
+
+    public function petugas()
+    {
+        return $this->belongsTo(Petugas::class, 'petugas_id');
     }
 }

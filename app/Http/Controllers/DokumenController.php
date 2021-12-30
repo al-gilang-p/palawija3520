@@ -35,6 +35,7 @@ class DokumenController extends Controller
         $dokumen->opt_thnini = $request->input('opt_thnini');
         $dokumen->alas_perontokan = $request->input('alas_perontokan');
         $dokumen->wilayah_id = $request->input('wilayah_id');
+        $dokumen->petugas_id = $request->input('petugas_id');
 
         if ($dokumen->save()) {
             return redirect()->route('admin.dokumen')->with('success', 'Berhasil mengentry dokumen!');

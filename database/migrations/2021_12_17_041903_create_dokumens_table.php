@@ -38,6 +38,7 @@ class CreateDokumensTable extends Migration
             $table->integer('rumpun');
             $table->enum('opt_thnini', ['1', '2', '3']);
             $table->enum('alas_perontokan', ['1', '2', '3', '4', '5']);
+            $table->foreignId('petugas_id')->constrained('petugas')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('wilayah_id')->constrained('wilayahs')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

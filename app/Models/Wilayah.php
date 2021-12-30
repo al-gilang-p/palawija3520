@@ -13,6 +13,6 @@ class Wilayah extends Model
 
     public function dokumen()
     {
-        return $this->hasOne('Dokumen::class');
+        return $this->hasOne(Dokumen::class);
     }
 }
