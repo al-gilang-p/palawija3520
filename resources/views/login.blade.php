@@ -45,6 +45,16 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Ubinan Palawija</h1>
                                     </div>
+
+                                    @if (session('error'))
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong>Gagal!</strong> {{ session('error') }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    @endif
+
                                     <form action="{{ route('login_petugas') }}" method="post" class="user">
                                         @csrf
                                         <div class="form-group">
