@@ -21,9 +21,15 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function (Request $request) {
+    $wilayah = Wilayah::count();
+    $petugas = Petugas::whereNotNull('kd_pcl')->count();
+    $jumlahDokumen = Wilayah::count();
+    $entriDokumen = Dokumen::count();
+
     if($request->session()->exists('user_id')) {
-        return view('admin.pages.dashboard');
+        return view('admin.pages.dashboard', ['wilayah' => $wilayah, 'petugas' => $petugas, 'jumlahDokumen' => $jumlahDokumen, 'entriDokumen' => $entriDokumen]);
     }
+
     return view('login');
 })->name('dashboard');
 
