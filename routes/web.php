@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function (Request $request) {
-    if($request->session()->exists('user_id')) {
+    if ($request->session()->exists('user_id')) {
         if ($request->session()->get('role') == 'admin') {
             $wilayah = Wilayah::count();
             $petugas = Petugas::whereNotNull('kd_pcl')->count();
@@ -31,7 +31,7 @@ Route::get('/', function (Request $request) {
             $data = ['wilayah' => $wilayah, 'petugas' => $petugas, 'jumlahDokumen' => $jumlahDokumen, 'entriDokumen' => $entriDokumen];
         } else {
             $jumlahDokumen = Wilayah::where('kd_pcl', '=', $request->session()->get('kd_pcl'))->count();
-            $entriDokumen = Dokumen::whereHas('wilayah', function (Builder $query) use($request) {
+            $entriDokumen = Dokumen::whereHas('wilayah', function (Builder $query) use ($request) {
                 $query->where('kd_pcl', '=', $request->session()->get('kd_pcl'));
             })->count();
             $data = ['jumlahDokumen' => $jumlahDokumen, 'entriDokumen' => $entriDokumen];
@@ -42,7 +42,7 @@ Route::get('/', function (Request $request) {
     return view('login');
 })->name('dashboard');
 
-Route::middleware(['login','admin'])->group(function () {
+Route::middleware(['login', 'admin'])->group(function () {
     Route::get('/wilayah', function () {
         $wilayahs = Wilayah::all()->toArray();
         return view('admin.pages.template_wilayah', ['wilayah' => $wilayahs]);
@@ -95,9 +95,9 @@ Route::middleware(['login','admin'])->group(function () {
     Route::delete('/petugas/{id}', [PetugasController::class, 'destroy'])->name('admin.destroy_petugas');
 });
 
-Route::middleware(['login'])->group(function() {
+Route::middleware(['login'])->group(function () {
     Route::get('/dokumen', function (Request $request) {
-        if($request->session()->get('role') == 'operator') {
+        if ($request->session()->get('role') == 'operator') {
             $wilayah = Wilayah::leftJoin('dokumens', function ($join) {
                 $join->on('wilayahs.id', '=', 'dokumens.wilayah_id');
             })->where('wilayahs.kd_pcl', '=', $request->session()->get('kd_pcl'))->get(['wilayahs.*', 'dokumens.id as dokumen_id'])->toArray();
@@ -136,4 +136,3 @@ Route::middleware(['login'])->group(function() {
 });
 
 Route::post('/login', [PetugasController::class, 'login'])->name('login_petugas');
-

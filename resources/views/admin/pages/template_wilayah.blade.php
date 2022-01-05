@@ -36,7 +36,7 @@
 <div class="card shadow mb-3">
     <div class="card-header py-3 d-flex justify-content-between">
         <h6 class="m-0 font-weight-bold text-primary">Input Template Wilayah Kerja</h6>
-        <button class="btn btn-success btn-sm">Download Template</button>
+        <button class="btn btn-success btn-xs">Download Template</button>
     </div>
     <div class="card-body">
         <form method="post" action="{{ route('admin.store_wilayah') }}" id="form_import_excel" class="p-2"
