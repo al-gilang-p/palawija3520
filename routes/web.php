@@ -58,6 +58,7 @@ Route::middleware(['login', 'admin'])->group(function () {
         return view('admin.pages.template_wilayah_edit', ['wilayah' => $wilayah]);
     })->name('admin.template_wilayah_edit');
 
+    Route::get('/template', [WilayahController::class, 'downloadTemplate'])->name('admin.download_wilayah');
     Route::post('/wilayah', [WilayahController::class, 'store'])->name('admin.store_wilayah');
     Route::put('/wilayah/{id}', [WilayahController::class, 'update'])->name('admin.update_wilayah');
     Route::delete('/wilayah/{id}', [WilayahController::class, 'destroy'])->name('admin.destroy_wilayah');

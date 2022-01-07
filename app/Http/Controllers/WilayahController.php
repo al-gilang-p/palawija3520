@@ -10,6 +10,12 @@ use Maatwebsite\Excel\Validators\ValidationException;
 
 class WilayahController extends Controller
 {
+    public function downloadTemplate()
+    {
+        $path = storage_path('app/public/template_wilayah.xlsx');
+        return response()->download($path);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
