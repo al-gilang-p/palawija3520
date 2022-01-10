@@ -127,15 +127,15 @@
                     'targets': 0
                 },
                 {
-                    'targets': 9,
+                    'targets': 8,
                     'orderable': false,
                     'searchable': false,
                     render: function (data, type, row) {
                         return `
                         <div class="d-flex align-items-center justify-content-center">
-                            <a href="wilayah/view/${row[9]}" title="lihat" class='btn btn-primary-outline p-0 text-primary view'><i class="far fa-eye"></i></a>
-                            <a href="wilayah/edit/${row[9]}" title="perbarui" class='btn btn-warning-outline p-0 text-warning edit'><i class="far fa-edit"></i></a>
-                            <form method="post" action="wilayah/${row[9]}">
+                            <a href="wilayah/view/${row[8]}" title="lihat" class='btn btn-primary-outline p-0 text-primary view'><i class="far fa-eye"></i></a>
+                            <a href="wilayah/edit/${row[8]}" title="perbarui" class='btn btn-warning-outline p-0 text-warning edit'><i class="far fa-edit"></i></a>
+                            <form method="post" action="wilayah/${row[8]}">
                                 @csrf
                                 @method('delete')
                                 <button type="button" title="hapus" class='btn btn-danger-outline p-0 text-danger delete'><i class="far fa-trash-alt"></i></button>

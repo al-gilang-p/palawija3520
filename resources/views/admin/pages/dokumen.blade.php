@@ -36,7 +36,7 @@
                         <th>Nama Desa</th>
                         <th>NBS</th>
                         <th>NKS</th>
-                        <th>ID Segmen</th>
+                        {{-- <th>ID Segmen</th> --}}
                         <th>Nama Lokasi</th>
                         <th>Menu</th>
                     </tr>
@@ -50,7 +50,7 @@
                         <td>{{ $data['nm_desa'] }}</td>
                         <td>{{ $data['nbs'] }}</td>
                         <td>{{ $data['nks'] }}</td>
-                        <td>{{ $data['id_segmen'] }}</td>
+                        {{-- <td>{{ $data['id_segmen'] }}</td> --}}
                         <td>{{ $data['nm_lokasi'] }}</td>
                         <td>{{ $data['dokumen_id'] }}</td>
                     </tr>
@@ -90,11 +90,11 @@
                     'searchable': false
                 },
                 {
-                    'targets': 8,
+                    'targets': 7,
                     'orderable': false,
                     'searchable': false,
                     render: function (data, type, row) {
-                        if(row[8] == false) {
+                        if(row[7] == false) {
                             return `
                                 <div class="d-flex align-items-center justify-content-center">
                                     <a href="/dokumen/entry/${row[1]}" title="entry" class='btn btn-primary-outline p-0 text-success view'><i class="fas fa-user-edit"></i></a>
@@ -103,9 +103,9 @@
                         }
                         return `
                             <div class="d-flex align-items-center justify-content-center">
-                                <a href="dokumen/view/${row[8]}" title="lihat" class='btn btn-primary-outline p-0 text-primary view'><i class="far fa-eye"></i></a>
-                                <a href="dokumen/edit/${row[8]}" title="perbarui" class='btn btn-warning-outline p-0 text-warning edit'><i class="far fa-edit"></i></a>
-                                <form method="post" action="dokumen/${row[8]}">
+                                <a href="dokumen/view/${row[7]}" title="lihat" class='btn btn-primary-outline p-0 text-primary view'><i class="far fa-eye"></i></a>
+                                <a href="dokumen/edit/${row[7]}" title="perbarui" class='btn btn-warning-outline p-0 text-warning edit'><i class="far fa-edit"></i></a>
+                                <form method="post" action="dokumen/${row[7]}">
                                     @csrf
                                     @method('delete')
                                     <button type="button" title="hapus" class='btn btn-danger-outline p-0 text-danger delete'><i class="far fa-trash-alt"></i></button>
