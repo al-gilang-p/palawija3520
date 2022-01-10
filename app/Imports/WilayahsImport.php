@@ -26,7 +26,7 @@ class WilayahsImport implements ToModel, WithHeadingrow
             // 'id_segmen' => $row['id_segmen'],
             'nm_lokasi' => $row['nm_lokasi'],
             'ar' => $row['ar'],
-            'subsegmen' => $row['subsegmen'],
+            // 'subsegmen' => $row['subsegmen'],
             'bln_panen' => $row['bln_panen'],
             'kd_pcl' => $row['kd_pcl'],
             'nm_pcl' => $row['nm_pcl'],

@@ -40,12 +40,12 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label for="nbs">Nomor Blok Sensus</label>
                 <input type="text" class="form-control" placeholder="001B" name="nbs" value="{{ $wilayah['nbs'] }}"
                     readonly>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label for="nks">Nomor Kode Sampel</label>
                 <input type="text" class="form-control" placeholder="21701073" name="nks" value="{{ $wilayah['nks'] }}"
                     readonly>
@@ -55,11 +55,11 @@
                 <input type="text" class="form-control" placeholder="3520010001" name="id_segmen"
                     value="{{ $wilayah['id_segmen'] }}" readonly>
             </div> --}}
-            <div class="form-group col-md-4">
+            {{-- <div class="form-group col-md-4">
                 <label for="subsegmen">Subsegmen</label>
                 <input type="text" class="form-control" placeholder="A3" name="subsegmen"
                     value="{{ $wilayah['subsegmen'] }}" readonly>
-            </div>
+            </div> --}}
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">

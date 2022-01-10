@@ -9,7 +9,7 @@ class Wilayah extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['sr', 'kd_kec', 'nm_kec', 'kd_desa', 'nm_desa', 'nbs', 'nks', 'nm_lokasi', 'ar', 'subsegmen', 'bln_panen', 'kd_pcl', 'nm_pcl', 'kd_pml', 'nm_pml'];
+    protected $fillable = ['sr', 'kd_kec', 'nm_kec', 'kd_desa', 'nm_desa', 'nbs', 'nks', 'nm_lokasi', 'ar', 'bln_panen', 'kd_pcl', 'nm_pcl', 'kd_pml', 'nm_pml'];
 
     public function dokumen()
     {

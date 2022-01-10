@@ -25,7 +25,7 @@ class CreateWilayahsTable extends Migration
             // $table->char('id_segmen', 9);
             $table->string('nm_lokasi', 100);
             $table->float('ar');
-            $table->char('subsegmen', 2);
+            // $table->char('subsegmen', 2);
             $table->char('bln_panen', 2);
             $table->char('kd_pcl', 3);
             $table->string('nm_pcl', 100);
