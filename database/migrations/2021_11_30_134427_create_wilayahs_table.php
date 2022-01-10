@@ -22,7 +22,7 @@ class CreateWilayahsTable extends Migration
             $table->string('nm_desa', 100);
             $table->char('nbs', 4);
             $table->char('nks', 8);
-            $table->char('id_segmen', 9);
+            // $table->char('id_segmen', 9);
             $table->string('nm_lokasi', 100);
             $table->float('ar');
             $table->char('subsegmen', 2);

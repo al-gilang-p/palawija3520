@@ -23,7 +23,7 @@ class WilayahsImport implements ToModel, WithHeadingrow
             'nm_desa' => $row['kd_desa'],
             'nbs' => $row['nbs'],
             'nks' => $row['nks'],
-            'id_segmen' => $row['id_segmen'],
+            // 'id_segmen' => $row['id_segmen'],
             'nm_lokasi' => $row['nm_lokasi'],
             'ar' => $row['ar'],
             'subsegmen' => $row['subsegmen'],

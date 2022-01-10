@@ -69,7 +69,7 @@
                         <th>Nama Desa</th>
                         <th>NBS</th>
                         <th>NKS</th>
-                        <th>ID Segmen</th>
+                        {{-- <th>ID Segmen</th> --}}
                         <th>Nama Lokasi</th>
                         <th>Nama PML</th>
                         <th>Nama PCL</th>
@@ -84,7 +84,7 @@
                         <td>{{ $data['nm_desa'] }}</td>
                         <td>{{ $data['nbs'] }}</td>
                         <td>{{ $data['nks'] }}</td>
-                        <td>{{ $data['id_segmen'] }}</td>
+                        {{-- <td>{{ $data['id_segmen'] }}</td> --}}
                         <td>{{ $data['nm_lokasi'] }}</td>
                         <td>{{ $data['nm_pml'] }}</td>
                         <td>{{ $data['nm_pcl'] }}</td>
