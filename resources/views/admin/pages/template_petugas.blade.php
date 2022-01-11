@@ -93,6 +93,10 @@
 </script>
 
 <script>
+    $('form').submit(function () {
+        $.LoadingOverlay("show");
+    });
+
     $(document).ready(function () {
         let t = $('#dataTable').DataTable({
             'columnDefs': [{
