@@ -40,39 +40,51 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label for="nbs">Nomor Blok Sensus</label>
                 <input type="text" class="form-control" placeholder="001B" name="nbs" value="{{ $wilayah['nbs'] }}"
                     readonly>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label for="nks">Nomor Kode Sampel</label>
                 <input type="text" class="form-control" placeholder="21701073" name="nks" value="{{ $wilayah['nks'] }}"
                     readonly>
             </div>
-            {{-- <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="id_segmen">ID Segmen</label>
                 <input type="text" class="form-control" placeholder="3520010001" name="id_segmen"
                     value="{{ $wilayah['id_segmen'] }}" readonly>
-            </div> --}}
-            {{-- <div class="form-group col-md-4">
+            </div>
+            <div class="form-group col-md-3">
                 <label for="subsegmen">Subsegmen</label>
                 <input type="text" class="form-control" placeholder="A3" name="subsegmen"
                     value="{{ $wilayah['subsegmen'] }}" readonly>
-            </div> --}}
+            </div>
         </div>
         <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="komoditas">Komoditas</label>
+                <input type="text" class="form-control" name="komoditas"
+                    value="{{ $wilayah['komoditas'] }}" readonly>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="responden">Responden</label>
+                <input type="text" class="form-control" name="responden"
+                    value="{{ $wilayah['responden'] }}" readonly>
+            </div>
             <div class="form-group col-md-4">
                 <label for="nm_lokasi">Nama Lokasi</label>
                 <input type="text" class="form-control" placeholder="TEGALARUM" name="nm_lokasi"
                     value="{{ $wilayah['nm_lokasi'] }}" readonly>
             </div>
-            <div class="form-group col-md-4">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
                 <label for="ar">Angka Random</label>
                 <input type="number" class="form-control" placeholder="0.1" name="ar" value="{{ $wilayah['ar'] }}"
                     readonly>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label for="bln_panen">Bulan Panen</label>
                 <input type="text" class="form-control" placeholder="A3" name="bln_panen"
                     value="{{ $wilayah['bln_panen'] }}" readonly>

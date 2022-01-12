@@ -45,6 +45,7 @@ Route::get('/', function (Request $request) {
 Route::middleware(['login', 'admin'])->group(function () {
     Route::get('/wilayah', function () {
         $wilayahs = Wilayah::all()->toArray();
+        // dd($wilayahs);
         return view('admin.pages.template_wilayah', ['wilayah' => $wilayahs]);
     })->name('admin.template_wilayah');
 

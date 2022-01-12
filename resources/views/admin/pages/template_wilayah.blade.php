@@ -69,7 +69,8 @@
                         <th>Nama Desa</th>
                         <th>NBS</th>
                         <th>NKS</th>
-                        {{-- <th>ID Segmen</th> --}}
+                        <th>Komoditas</th>
+                        <th>Responden</th>
                         <th>Nama Lokasi</th>
                         <th>Nama PML</th>
                         <th>Nama PCL</th>
@@ -79,15 +80,16 @@
                 <tbody>
                     @foreach ($wilayah as $data)
                     <tr>
-                        <td></td>
-                        <td>{{ $data[ 'nm_kec' ] }}</td>
-                        <td>{{ $data['nm_desa'] }}</td>
-                        <td>{{ $data['nbs'] }}</td>
-                        <td>{{ $data['nks'] }}</td>
-                        {{-- <td>{{ $data['id_segmen'] }}</td> --}}
-                        <td>{{ $data['nm_lokasi'] }}</td>
-                        <td>{{ $data['nm_pml'] }}</td>
-                        <td>{{ $data['nm_pcl'] }}</td>
+                        <td class="small"></td>
+                        <td><small>{{ $data['nm_kec'] }}</small></td>
+                        <td><small>{{ $data['nm_desa'] }}</small></td>
+                        <td><small>{{ $data['nbs'] }}</small></td>
+                        <td><small>{{ $data['nks'] }}</small></td>
+                        <td><small>{{ $data['komoditas'] }}</small></td>
+                        <td><small>{{ $data['responden'] }}</small></td>
+                        <td><small>{{ $data['nm_lokasi'] }}</small></td>
+                        <td><small>{{ $data['nm_pml'] }}</small></td>
+                        <td><small>{{ $data['nm_pcl'] }}</small></td>
                         <td>{{ $data['id'] }}</td>
                     </tr>
                     @endforeach
@@ -127,15 +129,15 @@
                     'targets': 0
                 },
                 {
-                    'targets': 8,
+                    'targets': 10,
                     'orderable': false,
                     'searchable': false,
                     render: function (data, type, row) {
                         return `
                         <div class="d-flex align-items-center justify-content-center">
-                            <a href="wilayah/view/${row[8]}" title="lihat" class='btn btn-primary-outline p-0 text-primary view'><i class="far fa-eye"></i></a>
-                            <a href="wilayah/edit/${row[8]}" title="perbarui" class='btn btn-warning-outline p-0 text-warning edit'><i class="far fa-edit"></i></a>
-                            <form method="post" action="wilayah/${row[8]}">
+                            <a href="wilayah/view/${row[10]}" title="lihat" class='btn btn-primary-outline p-0 text-primary view'><i class="far fa-eye"></i></a>
+                            <a href="wilayah/edit/${row[10]}" title="perbarui" class='btn btn-warning-outline p-0 text-warning edit'><i class="far fa-edit"></i></a>
+                            <form method="post" action="wilayah/${row[10]}">
                                 @csrf
                                 @method('delete')
                                 <button type="button" title="hapus" class='btn btn-danger-outline p-0 text-danger delete'><i class="far fa-trash-alt"></i></button>

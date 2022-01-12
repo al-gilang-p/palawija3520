@@ -42,11 +42,13 @@ class WilayahController extends Controller
         $wilayah->nm_desa = $request->input('nm_desa');
         $wilayah->nbs = $request->input('nbs');
         $wilayah->nks = $request->input('nks');
-        // $wilayah->id_segmen = $request->input('id_segmen');
+        $wilayah->id_segmen = $request->input('id_segmen');
+        $wilayah->subsegmen = $request->input('subsegmen');
+        $wilayah->responden = $request->input('responden');
         $wilayah->nm_lokasi = $request->input('nm_lokasi');
-        $wilayah->ar = $request->input('ar');
-        // $wilayah->subsegmen = $request->input('subsegmen');
         $wilayah->bln_panen = $request->input('bln_panen');
+        $wilayah->komoditas = $request->input('komoditas');
+        $wilayah->ar = $request->input('ar');
         $wilayah->kd_pcl = $request->input('kd_pcl');
         $wilayah->nm_pcl = $request->input('nm_pcl');
         $wilayah->kd_pml = $request->input('kd_pml');

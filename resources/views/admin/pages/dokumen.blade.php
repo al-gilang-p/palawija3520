@@ -36,7 +36,8 @@
                         <th>Nama Desa</th>
                         <th>NBS</th>
                         <th>NKS</th>
-                        {{-- <th>ID Segmen</th> --}}
+                        <th>Komoditas</th>
+                        <th>Responden</th>
                         <th>Nama Lokasi</th>
                         <th>Menu</th>
                     </tr>
@@ -44,15 +45,16 @@
                 <tbody>
                     @foreach ($wilayah as $data)
                     <tr>
-                        <td></td>
-                        <td>{{ $data[ 'id' ] }}</td>
-                        <td>{{ $data[ 'nm_kec' ] }}</td>
-                        <td>{{ $data['nm_desa'] }}</td>
-                        <td>{{ $data['nbs'] }}</td>
-                        <td>{{ $data['nks'] }}</td>
-                        {{-- <td>{{ $data['id_segmen'] }}</td> --}}
-                        <td>{{ $data['nm_lokasi'] }}</td>
-                        <td>{{ $data['dokumen_id'] }}</td>
+                        <td class="small"></td>
+                        <td class="small">{{ $data[ 'id' ] }}</td>
+                        <td class="small">{{ $data[ 'nm_kec' ] }}</td>
+                        <td class="small">{{ $data['nm_desa'] }}</td>
+                        <td class="small">{{ $data['nbs'] }}</td>
+                        <td class="small">{{ $data['nks'] }}</td>
+                        <td class="small">{{ $data['komoditas'] }}</td>
+                        <td class="small">{{ $data['responden'] }}</td>
+                        <td class="small">{{ $data['nm_lokasi'] }}</td>
+                        <td class="small">{{ $data['dokumen_id'] }}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -90,11 +92,11 @@
                     'searchable': false
                 },
                 {
-                    'targets': 7,
+                    'targets': 9,
                     'orderable': false,
                     'searchable': false,
                     render: function (data, type, row) {
-                        if(row[7] == false) {
+                        if(row[9] == false) {
                             return `
                                 <div class="d-flex align-items-center justify-content-center">
                                     <a href="/dokumen/entry/${row[1]}" title="entry" class='btn btn-primary-outline p-0 text-success view'><i class="fas fa-user-edit"></i></a>
@@ -103,9 +105,9 @@
                         }
                         return `
                             <div class="d-flex align-items-center justify-content-center">
-                                <a href="dokumen/view/${row[7]}" title="lihat" class='btn btn-primary-outline p-0 text-primary view'><i class="far fa-eye"></i></a>
-                                <a href="dokumen/edit/${row[7]}" title="perbarui" class='btn btn-warning-outline p-0 text-warning edit'><i class="far fa-edit"></i></a>
-                                <form method="post" action="dokumen/${row[7]}">
+                                <a href="dokumen/view/${row[9]}" title="lihat" class='btn btn-primary-outline p-0 text-primary view'><i class="far fa-eye"></i></a>
+                                <a href="dokumen/edit/${row[9]}" title="perbarui" class='btn btn-warning-outline p-0 text-warning edit'><i class="far fa-edit"></i></a>
+                                <form method="post" action="dokumen/${row[9]}">
                                     @csrf
                                     @method('delete')
                                     <button type="button" title="hapus" class='btn btn-danger-outline p-0 text-danger delete'><i class="far fa-trash-alt"></i></button>

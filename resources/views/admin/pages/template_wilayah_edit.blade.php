@@ -13,88 +13,105 @@
         <div class="form-group">
             <div class="form-group">
                 <label for="sr">Subround</label>
-                <input type="number" class="form-control" placeholder="1" name="sr" value="{{ $wilayah['sr'] }}" required>
+                <input type="number" class="form-control" name="sr" value="{{ $wilayah['sr'] }}" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="kd_kec">Kode kecamatan</label>
-                <input type="text" class="form-control" placeholder="010" name="kd_kec"
+                <input type="text" class="form-control" name="kd_kec"
                     value="{{ $wilayah['kd_kec'] }}" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="nm_kec">Nama kecamatan</label>
-                <input type="text" class="form-control" placeholder="PONCOL" name="nm_kec"
+                <input type="text" class="form-control" name="nm_kec"
                     value="{{ $wilayah['nm_kec'] }}" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="kd_desa">Kode Desa</label>
-                <input type="text" class="form-control" placeholder="001" name="kd_desa"
+                <input type="text" class="form-control" name="kd_desa"
                     value="{{ $wilayah['kd_desa'] }}" required>
             </div>
             <div class="form-group col-md-6">
                 <label for="nm_kec">Nama Desa</label>
-                <input type="text" class="form-control" placeholder="GENILANGIT" name="nm_desa"
+                <input type="text" class="form-control" name="nm_desa"
                     value="{{ $wilayah['nm_desa'] }}" required>
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label for="nbs">Nomor Blok Sensus (NBS)</label>
-                <input type="text" class="form-control" placeholder="001B" name="nbs" value="{{ $wilayah['nbs'] }}" required>
+                <input type="text" class="form-control" name="nbs" value="{{ $wilayah['nbs'] }}" required>
             </div>
-            <div class="form-group col-md-6">
+            <div class="form-group col-md-3">
                 <label for="nks">Nomor Kode Sampel (NKS)</label>
-                <input type="number" class="form-control" placeholder="21701073" name="nks" value="{{ $wilayah['nks'] }}" required>
+                <input type="number" class="form-control" name="nks" value="{{ $wilayah['nks'] }}" required>
             </div>
-            {{-- <div class="form-group col-md-4">
+            <div class="form-group col-md-3">
                 <label for="id_segmen">ID Segmen</label>
-                <input type="numbert" class="form-control" placeholder="3520010001" name="id_segmen"
-                    value="{{ $wilayah['id_segmen'] }}" required>
-            </div> --}}
-            {{-- <div class="form-group col-md-4">
+                <input type="numbert" class="form-control" name="id_segmen"
+                    value="{{ $wilayah['id_segmen'] }}">
+            </div>
+            <div class="form-group col-md-3">
                 <label for="subsegmen">Subsegmen</label>
-                <input type="text" class="form-control" placeholder="A3" name="subsegmen"
-                    value="{{ $wilayah['subsegmen'] }}" required>
-            </div> --}}
+                <input type="text" class="form-control" name="subsegmen"
+                    value="{{ $wilayah['subsegmen'] }}">
+            </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
+                <label for="komoditas">Komoditas</label>
+                <select class="custom-select" name="komoditas" required>
+                    <option disabled selected>Pilih Komoditas</option>
+                    <option value="Ubi Kayu">Ubi Kayu</option>
+                    <option value="Ubi Jalar">Ubi Jalar</option>
+                    <option value="Jagung">Jagung</option>
+                    <option value="Kacang Tanah">Kacang Tanah</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="responden">Responden</label>
+                <input type="text" class="form-control" name="responden"
+                    value="{{ $wilayah['responden'] }}" required>
+            </div>
+            <div class="form-group col-md-4">
                 <label for="nm_lokasi">Nama Lokasi</label>
-                <input type="text" class="form-control" placeholder="TEGALARUM" name="nm_lokasi"
+                <input type="text" class="form-control" name="nm_lokasi"
                     value="{{ $wilayah['nm_lokasi'] }}" required>
             </div>
-            <div class="form-group col-md-4">
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
                 <label for="ar">Angka Random</label>
-                <input type="number" class="form-control" placeholder="0.1" name="ar" value="{{ $wilayah['ar'] }}" step="any" required>
+                <input type="number" class="form-control" name="ar" value="{{ $wilayah['ar'] }}" step="any" required>
             </div>
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
                 <label for="bln_panen">Bulan Panen</label>
-                <input type="text" class="form-control" placeholder="A3" name="bln_panen"
+                <input type="number" min="1" max="12" class="form-control" name="bln_panen"
                     value="{{ $wilayah['bln_panen'] }}" required>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="kd_pml">Kode PML</label>
-                <input type="text" class="form-control" placeholder="001" name="kd_pml"
+                <input type="text" class="form-control" name="kd_pml"
                     value="{{ $wilayah['kd_pml'] }}" required>
             </div>
             <div class="form-group col-md-3">
                 <label for="nm_pml">Nama PML</label>
-                <input type="text" class="form-control" placeholder="Hello" name="nm_pml"
+                <input type="text" class="form-control" name="nm_pml"
                     value="{{ $wilayah['nm_pml'] }}" required>
             </div>
             <div class="form-group col-md-3">
                 <label for="kd_pcl">Kode PCL</label>
-                <input type="text" class="form-control" placeholder="002" name="kd_pcl"
+                <input type="text" class="form-control" name="kd_pcl"
                     value="{{ $wilayah['kd_pcl'] }}" required>
             </div>
             <div class="form-group col-md-3">
                 <label for="nm_pcl">Nama PCL</label>
-                <input type="text" class="form-control" placeholder="World" name="nm_pcl"
+                <input type="text" class="form-control" name="nm_pcl"
                     value="{{ $wilayah['nm_pcl'] }}" required>
             </div>
         </div>
@@ -122,6 +139,9 @@
 </script>
 
 <script>
-
+    $('document').ready(function() {
+        let komoditas = {!! json_encode($wilayah['komoditas']) !!};
+        $(`select[name='komoditas'] option[value='${komoditas}']`).attr("selected","selected");
+    });
 </script>
 @endsection
