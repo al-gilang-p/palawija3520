@@ -17,9 +17,9 @@ class CreateWilayahsTable extends Migration
             $table->id();
             $table->enum('sr', ['1', '2', '3']);
             $table->char('kd_kec', 3);
-            $table->string('nm_kec', 100);
+            $table->string('nm_kec', 100)->nullable();
             $table->char('kd_desa', 3);
-            $table->string('nm_desa', 100);
+            $table->string('nm_desa', 100)->nullable();
             $table->char('nbs', 4);
             $table->char('nks', 8);
             $table->char('id_segmen', 9)->nullable();
@@ -27,7 +27,7 @@ class CreateWilayahsTable extends Migration
             $table->string('responden', 100);
             $table->string('nm_lokasi', 100);
             $table->char('bln_panen', 2);
-            $table->enum('komoditas', ['Ubi Kayu', 'Ubi Jalar', 'Jagung', 'Kacang Tanah']);
+            $table->enum('komoditas', ['Padi', 'Ubi Kayu', 'Ubi Jalar', 'Jagung', 'Kacang Tanah'])->nullable();
             $table->float('ar');
             $table->char('kd_pcl', 3);
             $table->string('nm_pcl', 100);

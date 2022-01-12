@@ -41,7 +41,7 @@
             </select>
 
             <label class="sr-only" for="username">Username</label>
-            <input type="text" class="form-control my-1 mr-sm-2" placeholder="username" name="username" required />
+            <input type="text" class="form-control my-1 mr-sm-2" placeholder="username" name="username" required autofocus />
 
             <button type="submit" class="btn btn-primary my-1">Simpan</button>
         </form>
