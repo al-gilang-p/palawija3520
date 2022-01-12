@@ -82,12 +82,12 @@
 @endsection
 
 @section('csspage')
-<link href={{ asset("vendor/datatables/dataTables.bootstrap4.min.css") }} rel="stylesheet">
+<link href={{ asset("vendor/datatables/dataTables.bootstrap4.min.css"); }} rel="stylesheet">
 @endsection
 
 @section('jspage')
-<script src={{ asset("vendor/datatables/jquery.datatables.min.js") }}></script>
-<script src={{ asset("vendor/datatables/datatables.bootstrap4.min.js") }}></script>
+<script src={{ asset("vendor/datatables/jquery.datatables.min.js"); }}></script>
+<script src={{ asset("vendor/datatables/datatables.bootstrap4.min.js"); }}></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js">
 </script>
